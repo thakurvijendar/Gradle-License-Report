@@ -18,7 +18,7 @@ Add this to your `build.gradle` file for Gradle 7+:
 
 ```groovy
 plugins {
-  id 'com.github.jk1.dependency-license-report' version '2.0'
+  id 'io.github.thakurvijendar.dependency-license-report' version '2.0'
 }
 ```
 
@@ -26,7 +26,7 @@ For Gradle 6.X stick to 1.X plugin versions:
 
 ```groovy
 plugins {
-  id 'com.github.jk1.dependency-license-report' version '1.17'
+  id 'io.github.thakurvijendar.dependency-license-report' version '1.17'
 }
 ```
 
@@ -37,8 +37,8 @@ Then run `gradle generateLicenseReport` to generate your report in `build/report
 Configuration described below is entirely optional.
 
 ```groovy
-import com.github.jk1.license.render.*
-import com.github.jk1.license.importer.*
+import io.github.thakurvijendar.license.render.*
+import io.github.thakurvijendar.license.importer.*
 
 licenseReport {
     // Set output directory for the report data.
@@ -97,13 +97,13 @@ Plugin is compatible with build scripts written in kotlin. Configuration syntax 
 Consider the following sample:
 
 ```kotlin
-import com.github.jk1.license.render.ReportRenderer
-import com.github.jk1.license.render.InventoryHtmlReportRenderer
-import com.github.jk1.license.filter.DependencyFilter
-import com.github.jk1.license.filter.LicenseBundleNormalizer
+import ReportRenderer
+import InventoryHtmlReportRenderer
+import DependencyFilter
+import LicenseBundleNormalizer
 
 plugins {
-    id("com.github.jk1.dependency-license-report") version "2.0"
+    id("io.github.thakurvijendar.dependency-license-report") version "2.0"
 }
 
 licenseReport {
@@ -123,7 +123,7 @@ for text, html, xml and other popular presentation formats. It's also possible t
 All the renderers support report file name customization via constructor parameter:
 
 ```groovy
-import com.github.jk1.license.render.*
+import io.github.thakurvijendar.license.render.*
 
 licenseReport {
     renderers = [new XmlReportRenderer('third-party-libs.xml', 'Back-End Libraries')]
@@ -133,7 +133,7 @@ licenseReport {
 To get the report generated in multiple formats just list them:
 
 ```groovy
-import com.github.jk1.license.render.*
+import io.github.thakurvijendar.license.render.*
 
 licenseReport {
     renderers = [new XmlReportRenderer(), new CsvReportRenderer()]
@@ -147,7 +147,7 @@ share the same license.  This makes it easier to know the individual licenses yo
 To use this report you simply add it to the configuration:
 
 ```groovy
-import com.github.jk1.license.render.*
+import io.github.thakurvijendar.license.render.*
 
 licenseReport {
     renderers = [new InventoryHtmlReportRenderer()]
@@ -170,7 +170,7 @@ There are no column headers on this file.  Here is the example of how to config 
 an overrides file:
 
 ```groovy
-import com.github.jk1.license.render.*
+import io.github.thakurvijendar.license.render.*
 
 licenseReport {
     renderers = [new InventoryHtmlReportRenderer('index.html', 'Some Title', new File(projectDir,"../unknown-license-details.txt"))]
@@ -187,7 +187,7 @@ Importer adds license information from an external source to your report. Import
 The following example demonstrates how to use an importer:
 
 ```groovy
-import com.github.jk1.license.importer.*
+import io.github.thakurvijendar.license.importer.*
 
 licenseReport {
     // integrate javascript frontend dependencies into our report
@@ -233,7 +233,7 @@ This may include sorting, reordering, data substitution.
 The following filter will leave only first-level dependencies in the report:
 
 ```groovy
-import com.github.jk1.license.filter.*
+import io.github.thakurvijendar.license.filter.*
 ...
 licenseReport {
     filters = [new ExcludeTransitiveDependenciesFilter()]
@@ -284,7 +284,7 @@ are changed to license-name `Apache License, Version 2.0` and license-url `http:
 The normalizer can be enabled via a filter.
 
 ```groovy
-import com.github.jk1.license.filter.*
+import io.github.thakurvijendar.license.filter.*
 ...
 licenseReport {
     filters = [new LicenseBundleNormalizer(bundlePath: "$projectDir/config/license-normalizer-bundle.json")]
@@ -302,8 +302,8 @@ importer implementation inside `buildSrc` folder:
 ```java
 package org.sample;
 
-import com.github.jk1.license.ImportedModuleBundle;
-import com.github.jk1.license.importer.DependencyDataImporter;
+import ImportedModuleBundle;
+import DependencyDataImporter;
 import java.util.Collection;
 
 public class CustomImporter implements DependencyDataImporter {
@@ -331,7 +331,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.jk1:gradle-license-report:2.0'
+    compile 'io.github.thakurvijendar:gradle-license-report:2.0'
 }
 
 ```

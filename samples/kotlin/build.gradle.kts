@@ -1,7 +1,7 @@
-import com.github.jk1.license.render.ReportRenderer
-import com.github.jk1.license.render.InventoryHtmlReportRenderer
-import com.github.jk1.license.filter.DependencyFilter
-import com.github.jk1.license.filter.LicenseBundleNormalizer
+import io.github.thakurvijendar.license.render.ReportRenderer
+import io.github.thakurvijendar.license.render.InventoryHtmlReportRenderer
+import io.github.thakurvijendar.license.filter.DependencyFilter
+import io.github.thakurvijendar.license.filter.LicenseBundleNormalizer
 
 plugins {
     id("io.github.thakurvijendar.dependency-license-report") version "1.13"
