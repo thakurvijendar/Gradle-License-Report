@@ -18,7 +18,7 @@ Add this to your `build.gradle` file for Gradle 7+:
 
 ```groovy
 plugins {
-  id 'io.github.thakurvijendar.dependency-license-report' version '2.0'
+  id 'io.github.thakurvijendar.dependency-license-report' version '2.1'
 }
 ```
 
@@ -26,7 +26,7 @@ For Gradle 6.X stick to 1.X plugin versions:
 
 ```groovy
 plugins {
-  id 'io.github.thakurvijendar.dependency-license-report' version '1.17'
+  id 'io.github.thakurvijendar.dependency-license-report' version '2.1'
 }
 ```
 
@@ -103,7 +103,7 @@ import DependencyFilter
 import LicenseBundleNormalizer
 
 plugins {
-    id("io.github.thakurvijendar.dependency-license-report") version "2.0"
+    id("io.github.thakurvijendar.dependency-license-report") version "2.1"
 }
 
 licenseReport {
